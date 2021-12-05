@@ -79,12 +79,12 @@ void main() {
   realCoords.t = vTexCoord.y*2.0+0.5;
 
   vec3 illinois = vec3(texture(uSampler, realCoords));
-  vec3 stadium = vec3(texture(uSampler2, realCoords));
+  vec3 stadium = vec3(texture(uSampler2,ir.xy*0.25+0.5));
   
-  float red_value =    0.5*illinois.x + 0.5*(dot(n1,l1)+pow(max(dot(v1,r),0.0),10.0)) + 0.5*stadium.x*(dot(n1,l2) + pow(max(dot(v1,ir), 0.0), 10.0));
-  float green_value =    0.5*illinois.y +  0.5*(dot(n1,l1)+pow(max(dot(v1,r),0.0),10.0)) + 0.5*stadium.y*(dot(n1,l2) + pow(max(dot(v1,ir), 0.0), 10.0));
-  float blue_value =    0.5*illinois.z+ 0.5*(dot(n1,l1)+pow(max(dot(v1,r),0.0),10.0)) + 0.5*stadium.z*(dot(n1,l2) + pow(max(dot(v1,ir), 0.0), 10.0));
-  outColor = vec4(vec3(red_value, green_value, blue_value), 0.8);
+  float red_value =    0.2+0.5*illinois.x + 0.5*(dot(n1,l1)+pow(max(dot(v1,r),0.0),10.0))  + 0.5*stadium.x*(dot(n1,l2) + pow(max(dot(v1,ir), 0.0), 10.0));
+  float green_value =    0.2+0.5*illinois.y +  0.5*(dot(n1,l1)+pow(max(dot(v1,r),0.0),10.0)) + 0.5*stadium.y*(dot(n1,l2) + pow(max(dot(v1,ir), 0.0), 10.0));
+  float blue_value =    0.2+0.5*illinois.z+ 0.5*(dot(n1,l1)+pow(max(dot(v1,r),0.0),10.0)) + 0.5*stadium.z*(dot(n1,l2) + pow(max(dot(v1,ir), 0.0), 10.0));
+  outColor = vec4(vec3(red_value, green_value, blue_value), 1.0);
 }
 `;
 
